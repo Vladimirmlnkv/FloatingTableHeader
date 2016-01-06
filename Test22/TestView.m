@@ -46,7 +46,7 @@
     CGFloat headerHeight = self.header.frame.size.height;
     CGFloat delta;
     
-    if (!(self.contentOffset.y >= (self.contentSize.height - self.bounds.size.height) | self.contentOffset.y <= 0)) {
+    if (!(self.contentOffset.y >= (self.contentSize.height - self.bounds.size.height) || self.contentOffset.y <= 0)) {
         delta = self.lastContentOffset - self.contentOffset.y;
     } else {
         delta = 0;
