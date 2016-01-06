@@ -19,26 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.testDelegate = (id <TestTableViewControllerDelegate>) self.tableView;
     
     self.navigationItem.title = @"Test Table";
     self.navigationController.navigationBar.backgroundColor = [self randomColor];
     self.navigationController.navigationBar.translucent = NO;
     self.tableView.scrollsToTop = YES;
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
-    CGFloat delta;
-    
-    if (!(self.tableView.contentOffset.y >= (self.tableView.contentSize.height - self.tableView.bounds.size.height) | self.tableView.contentOffset.y <= 0)) {
-        delta = self.lastContentOffset - scrollView.contentOffset.y;
-    } else {
-        delta = 0;
-    }
-    
-    self.lastContentOffset = scrollView.contentOffset.y;
-    [self.testDelegate viewDidScrollOnDelta:delta];
 }
 
 #pragma mark - Support Methods
@@ -63,4 +48,5 @@
     
     return cell;
 }
+
 @end

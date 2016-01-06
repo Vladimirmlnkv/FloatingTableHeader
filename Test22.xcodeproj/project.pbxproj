@@ -42,6 +42,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E9A03F61C3D19E8003A3480 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7EFFE2D61C39A7DD001896B0 /* TestTableViewController.h */,
+				7EFFE2D71C39A7DD001896B0 /* TestTableViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		7E9A03F71C3D19FB003A3480 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7E3F75281C3C12870094B41A /* TestView.h */,
+				7E3F75291C3C12870094B41A /* TestView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		7EFFE2B31C39A7A9001896B0 = {
 			isa = PBXGroup;
 			children = (
@@ -62,10 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				7EFFE2C81C39A7A9001896B0 /* Main.storyboard */,
-				7EFFE2D61C39A7DD001896B0 /* TestTableViewController.h */,
-				7EFFE2D71C39A7DD001896B0 /* TestTableViewController.m */,
-				7E3F75281C3C12870094B41A /* TestView.h */,
-				7E3F75291C3C12870094B41A /* TestView.m */,
+				7E9A03F61C3D19E8003A3480 /* Controllers */,
+				7E9A03F71C3D19FB003A3480 /* Views */,
 				7EFFE2BF1C39A7A9001896B0 /* Supporting Files */,
 			);
 			path = Test22;

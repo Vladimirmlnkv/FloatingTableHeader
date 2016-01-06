@@ -9,7 +9,7 @@
 #import "TestView.h"
 #import "TestTableViewController.h"
 
-@interface TestView () <TestTableViewControllerDelegate>
+@interface TestView ()
 
 @property (strong, nonatomic)UIView *header;
 @property (assign, nonatomic)CGFloat delta;
@@ -37,29 +37,26 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-
-    CGFloat yCoordinate = self.offset + self.delta;
     
-    if (self.offset == 0) {
-        yCoordinate = 0;
-    }
-    self.header.frame = CGRectMake(0, yCoordinate, 320, 44);
+    [self layoutTableHeader];
 }
 
-#pragma mark - TestTableViewControllerDelegate
-
-- (void)viewDidScrollOnDelta:(CGFloat)delta {
+- (void)layoutTableHeader {
     
     CGFloat headerHeight = self.header.frame.size.height;
+    CGFloat delta;
+    
+    if (!(self.contentOffset.y >= (self.contentSize.height - self.bounds.size.height) | self.contentOffset.y <= 0)) {
+        delta = self.lastContentOffset - self.contentOffset.y;
+    } else {
+        delta = 0;
+    }
     
     self.offset = self.contentOffset.y <= 0 ? 0 : self.contentOffset.y;
     
     if (delta < 0 && self.delta > - headerHeight*2) {
-        
         self.delta += delta;
-        
     } else if (delta > 0) {
-        
         CGFloat tmp = self.delta + delta;
         if (tmp > - headerHeight && self.offset > headerHeight) {
             self.delta = - headerHeight;
@@ -68,8 +65,11 @@
         } else {
             self.delta += delta;
         }
-        
     }
+    self.lastContentOffset = self.contentOffset.y;
+    
+    CGFloat yCoordinate = self.offset == 0 ? 0 : self.offset + self.delta;
+    self.header.frame = CGRectMake(0, yCoordinate, 320, 44);
 }
 
 @end
