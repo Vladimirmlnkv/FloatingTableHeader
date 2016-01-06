@@ -10,15 +10,12 @@
 
 @interface TestTableViewController ()
 
-@property (assign, nonatomic)CGFloat lastContentOffset;
-
 @end
 
 @implementation TestTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     self.navigationItem.title = @"Test Table";
     self.navigationController.navigationBar.backgroundColor = [self randomColor];
